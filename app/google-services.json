@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832469180736",
+    "project_id": "ithc-1bb7d",
+    "storage_bucket": "ithc-1bb7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832469180736:android:623d942da95d77f6a21aa5",
+        "android_client_info": {
+          "package_name": "com.example.proyectoosiris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832469180736-g357ra4sq9n2ej37cdpmc3hu3r7e4b6d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUBiNM3zsEWbzIAfmqTamHtNNpZ8_bMvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832469180736-g357ra4sq9n2ej37cdpmc3hu3r7e4b6d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
