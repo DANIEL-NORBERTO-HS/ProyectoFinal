@@ -15,7 +15,7 @@ import com.google.ar.sceneform.rendering.EngineInstance;
 import com.google.ar.sceneform.utilities.Preconditions;
 
 /**
- * Represents a virtual camera, which determines the perspective through which the scene is viewed.
+ * Representa una cámara virtual, que determina la perspectiva a través de la cual se ve la escena.
  *
  * <p>If the camera is part of an {@link ArSceneView}, then the camera automatically tracks the
  * camera pose from ARCore. Additionally, the following methods will throw {@link

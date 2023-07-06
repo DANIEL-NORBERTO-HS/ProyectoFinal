@@ -109,7 +109,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun sesión() {
 
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE)
         val email = prefs.getString("email", null)
         val provider = prefs.getString("provider", null)
 
