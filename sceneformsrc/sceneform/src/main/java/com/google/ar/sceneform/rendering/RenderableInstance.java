@@ -43,7 +43,7 @@ public class RenderableInstance {
 
   /**
    * Interface for modifying the bone transforms for this specific RenderableInstance. Used by
-   * {@link com.google.ar.sceneform.SkeletonNode} to make it possible to control a bone by moving a
+   * to make it possible to control a bone by moving a
    * node.
    */
   public interface SkinningModifier {
