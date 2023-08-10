@@ -4,15 +4,11 @@ plugins {
     id 'com.google.gms.google-services'
     // Add the Crashlytics Gradle plugin
     id 'com.google.firebase.crashlytics'
-    //id 'kotlin-android-extensions'
 }
-
-
-
+apply plugin: 'kotlin-android-extensions'
 android {
     namespace 'com.example.proyectoosiris'
-    compileSdk 33
-
+    compileSdk 32
     viewBinding {
         enabled = true
     }
@@ -20,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.example.proyectoosiris"
         minSdk 26
-        targetSdk 33
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
@@ -33,10 +29,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -46,58 +41,41 @@ android {
 dependencies {
 
     //dependencias de Google Play Services
-    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
 
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
-    // Agrege la dependencia para la biblioteca de autenticación de Firebase
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth-ktx'
     //libreria de autenticación de Facebook
     implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
-    // Agregue la dependencia para la biblioteca de servicios de Google Play y especifique su versión
-    implementation 'com.google.android.gms:play-services-auth:20.6.0'
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
     //libreria Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     //libreria de google analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    // Cuando se usa BoM, no se especifican versiones en las dependencias de la biblioteca de Firebase.
-    //notificaciones
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.2.0'
-    // Declara la dependencia de la biblioteca de Cloud Firestore
-    implementation 'com.google.firebase:firebase-firestore-ktx'
-    // Declara la dependencia de la biblioteca Cloud Storage
-    implementation 'com.google.firebase:firebase-storage-ktx'
-    //libreria para usar el servicio de base de datos en tiempo real
-    implementation 'com.google.firebase:firebase-database-ktx'
-   //libreria para configurar la app remotamente con firebase
+    // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-config-ktx'
-
-    //libreria para usar sceneform
+    implementation 'androidx.preference:preference:1.2.0'
     implementation 'com.google.ar.sceneform:rendering:1.17.1'
-
-    // Glide BumpTech
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
-    implementation 'androidx.preference:preference:1.2.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-    //libreria externa scneneform
-    implementation 'com.google.ar:core:1.38.0'
-    //api sceneform para usar Realidad Aumentada
-    api project(":sceneformux")
-
-    // 3D and ARCore
-    //implementation 'io.github.sceneview:arsceneview:0.9.9'
+    //notificaciones
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }

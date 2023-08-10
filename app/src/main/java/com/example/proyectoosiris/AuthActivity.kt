@@ -1,13 +1,11 @@
 package com.example.proyectoosiris
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,13 +22,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.Task
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -94,7 +90,6 @@ class AuthActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_LOCATION_PERMISSION)
     }
     //Obtiene la ubicación actual del usuario:
-    @SuppressLint("MissingPermission")
     private fun getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestLocationPermission()
@@ -111,7 +106,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun sesión() {
 
-        val prefs = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE)
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email", null)
         val provider = prefs.getString("provider", null)
 
@@ -124,43 +119,24 @@ class AuthActivity : AppCompatActivity() {
 
     private fun notification(){
 
-        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-
-               task ->
-            if (task.isSuccessful) {
-                val token = task.result
-                println("Este es el token del dispositivo: $token")
-
-                // Guardar el token en la base de datos
-                val database = FirebaseDatabase.getInstance()
-                val tokenRef = database.getReference("tokens")
-                tokenRef.child(token).setValue(true) // Puedes usar cualquier valor como true, solo necesitas el token como clave
-            } else {
-                println("Error al obtener el token: ${task.exception}")
-            }
-
-
-            /*it.result?.let {
-                println("este es el token del dispositivo: ${it}")
-
-            }*/
-            /*task: Task<String> ->
+        FirebaseMessaging.getInstance().token.addOnCompleteListener{
+        it.result?.let {
+            println("este es el token del dispositivo: ${it}")
+        }
+        /*task: Task<String> ->
             if (!task.isSuccessful){
                 return@addOnCompleteListener
             }
             val token = task.result
-            Log.d("PUSH_TOKEN","Este es el token del dispositivo: $token")
+            Log.d("PUSH_TOKEN","Este es el token del dispositivo: $token")*/
+        }
+        //Temas (Topics)
+        FirebaseMessaging.getInstance().subscribeToTopic("racoons")
+        //Recuperar información
+        val url = intent.getStringExtra("url")
 
-        }*/
-            //Temas (Topics)
-            FirebaseMessaging.getInstance().subscribeToTopic("racoons")
-            //Recuperar información
-            val url = intent.getStringExtra("url")
-
-            url?.let {
-                println("Ha llegado informacion en una push: ${url}")
-
-            }
+        url?.let {
+            println("Ha llegado informacion en una push: ${url}")
         }
     }
 

@@ -22,13 +22,7 @@
     <style name="Theme.ProyectoOsiris.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ProyectoOsiris.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="SplashTheme" parent="Theme.ProyectoOsiris">
         <item name="android:windowBackground">@drawable/splashscreen</item>
-    </style>
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ProyectoOsiris" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 </resources>

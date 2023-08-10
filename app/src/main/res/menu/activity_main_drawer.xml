@@ -10,12 +10,13 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_3d"
+            android:icon="@drawable/ic_3d"
             android:title="@string/menu_3d" />
         <item
             android:id="@+id/nav_ocr"
-            android:icon="@drawable/ic_logout"
+            android:icon="@drawable/ic_ocr"
             android:title="@string/menu_ocr" />
-        <!--item
+        <item
             android:id="@+id/botonFin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +25,6 @@
             android:title="Cerrar Sesión"
             android:textColor="@color/white"
             android:icon="@drawable/ic_logout"
-             /-->
+             />
     </group>
 </menu>
